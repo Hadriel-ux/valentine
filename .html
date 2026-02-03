@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: pink;
+      margin-top: 100px;
+    }
+    h1 {
+      color: red;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+    }
+    #yes {
+      background-color: #ff4d4d;
+      color: white;
+    }
+    #no {
+      background-color: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>💌 Cathy Patra, will you be my Valentine?</h1>
+  <button id="yes" onclick="alert('Yesss! You made the perfect choice ❤️')">Yes</button>
+  <button id="no" onclick="wrongChoice()">No</button>
+
+  <script>
+    function wrongChoice() {
+      alert("Wrong decision 😅 You don’t know what you’re doing!");
+    }
+  </script>
+</body>
+</html>
