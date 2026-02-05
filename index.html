@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: pink;
+      margin-top: 100px;
+    }
+    h1 {
+      color: red;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+    }
+    #yes {
+      background-color: #ff4d4d;
+      color: white;
+    }
+    #no {
+      background-color: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 Cathy Patra asks: Will you be my Valentine? 💖</h1>
+  <button id="yes">Yes</button>
+  <button id="no">No</button>
+
+  <p id="response"></p>
+
+  <script>
+    const yesBtn = document.getElementById("yes");
+    const noBtn = document.getElementById("no");
+    const response = document.getElementById("response");
+
+    yesBtn.addEventListener("click", () => {
+      response.textContent = "Yay! 💕 Cathy Patra is smiling already!";
+    });
+
+    noBtn.addEventListener("click", () => {
+      response.textContent = "Wrong decision 😅 You don’t know what you’re doing!";
+    });
+  </script>
+</body>
+</html>
