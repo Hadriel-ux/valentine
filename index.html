@@ -9,6 +9,7 @@
       text-align: center;
       background: pink;
       margin-top: 100px;
+      overflow: hidden; /* so emojis don’t scroll */
     }
     h1 {
       color: red;
@@ -29,6 +30,15 @@
       background-color: #333;
       color: white;
     }
+    .emoji {
+      position: absolute;
+      font-size: 2rem;
+      animation: fall 3s linear forwards;
+    }
+    @keyframes fall {
+      from { top: -50px; opacity: 1; }
+      to { top: 100vh; opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -43,13 +53,28 @@
     const noBtn = document.getElementById("no");
     const response = document.getElementById("response");
 
+    function dropEmojis(symbol) {
+      for (let i = 0; i < 15; i++) {
+        const emoji = document.createElement("div");
+        emoji.classList.add("emoji");
+        emoji.textContent = symbol;
+        emoji.style.left = Math.random() * window.innerWidth + "px";
+        document.body.appendChild(emoji);
+
+        // remove after animation
+        setTimeout(() => emoji.remove(), 3000);
+      }
+    }
+
     yesBtn.addEventListener("click", () => {
       response.textContent = "Yay! 😜🍑💦💕 Cullinan is smiling already!";
+      dropEmojis("😍"); // hearts/love emojis
     });
 
     noBtn.addEventListener("click", () => {
       response.textContent = "Wrong decision 😅😏 You don’t know what you’re doing!";
+      dropEmojis("😭"); // crying emojis
     });
   </script>
 </body>
-</html>
+  </html>
