@@ -2,47 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A playful Valentine’s Day ask with interactive responses.">
   <title>Be My Valentine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Lato', sans-serif;
       text-align: center;
-      background: pink;
-      margin-top: 100px;
-      overflow: hidden; /* so emojis don’t scroll */
+      background: linear-gradient(135deg, #ffe6eb, #fff);
+      margin: 0;
+      padding: 60px 20px;
+      color: #333;
     }
     h1 {
-      color: red;
+      color: #d6336c;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    p.ask {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+      color: #444;
     }
     button {
-      padding: 10px 20px;
-      margin: 20px;
+      padding: 12px 28px;
+      margin: 15px;
       font-size: 18px;
       cursor: pointer;
       border: none;
       border-radius: 8px;
+      transition: all 0.3s ease;
     }
     #yes {
-      background-color: #ff4d4d;
+      background-color: #d6336c;
       color: white;
+    }
+    #yes:hover {
+      background-color: #b02555;
     }
     #no {
-      background-color: #333;
+      background-color: #555;
       color: white;
     }
-    .emoji {
-      position: absolute;
-      font-size: 2rem;
-      animation: fall 3s linear forwards;
+    #no:hover {
+      background-color: #333;
     }
-    @keyframes fall {
-      from { top: -50px; opacity: 1; }
-      to { top: 100vh; opacity: 0; }
+    #response {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #222;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    #response.show {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <h1>💖 Cullinan asks: Will you be my Valentine? 💦🙈💖</h1>
+  <h1>💖 Be My Valentine 💖</h1>
+  <p class="ask">
+    From the first spark to this very moment, my heart has been writing poetry with your name in every line.  
+    So I ask you — not casually, but with sincerity and a touch of playfulness — will you share this Valentine’s Day with me, as the one who makes the world brighter, softer, and endlessly sweeter?
+  </p>
+
   <button id="yes">Yes</button>
   <button id="no">No</button>
 
@@ -53,28 +80,31 @@
     const noBtn = document.getElementById("no");
     const response = document.getElementById("response");
 
-    function dropEmojis(symbol) {
-      for (let i = 0; i < 15; i++) {
-        const emoji = document.createElement("div");
-        emoji.classList.add("emoji");
-        emoji.textContent = symbol;
-        emoji.style.left = Math.random() * window.innerWidth + "px";
-        document.body.appendChild(emoji);
+    const noResponses = [
+      "Think again… love like this doesn’t knock twice 💫",
+      "Are you sure? Even the stars would disagree 🌌",
+      "No? That word feels too cold for Valentine’s warmth ❄️❤️",
+      "Gentle reminder: saying yes could change everything 🌹",
+      "Don’t be shy… the heart knows what it wants 💕",
+      "Mature thought: happiness is rare, don’t push it away 🌟",
+      "Naughty whisper: you’ll regret missing this kiss 😏💋",
+      "Poetic plea: roses wilt, but my love won’t 🌹",
+      "Playful tease: come on, you know you want to 😜",
+      "Final chance: rethink before Cupid flies past 🏹"
+    ];
 
-        // remove after animation
-        setTimeout(() => emoji.remove(), 3000);
-      }
-    }
+    let noClickCount = 0;
 
     yesBtn.addEventListener("click", () => {
-      response.textContent = "Yay! 😜🍑💦💕 Cullinan is smiling already!";
-      dropEmojis("😍"); // hearts/love emojis
+      response.textContent = "I can’t wait to see you 💖✨";
+      response.classList.add("show");
     });
 
     noBtn.addEventListener("click", () => {
-      response.textContent = "Wrong decision 😅😏 You don’t know what you’re doing!";
-      dropEmojis("😭"); // crying emojis
+      response.textContent = noResponses[noClickCount % noResponses.length];
+      response.classList.add("show");
+      noClickCount++;
     });
   </script>
 </body>
-  </html>
+    </html>
