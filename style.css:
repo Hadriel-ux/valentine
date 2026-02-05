@@ -1,0 +1,55 @@
+body {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe6eb, #fff);
+  margin: 0;
+  padding: 60px 20px;
+  color: #333;
+}
+
+h1 {
+  color: #d6336c;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 28px;
+  margin: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+#yes {
+  background-color: #d6336c;
+  color: white;
+}
+
+#yes:hover {
+  background-color: #b02555;
+}
+
+#no {
+  background-color: #333;
+  color: white;
+}
+
+#no:hover {
+  background-color: #555;
+}
+
+#response {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #222;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+#response.show {
+  opacity: 1;
+}
