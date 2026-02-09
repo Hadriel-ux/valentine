@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine Proposal 💘</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    h1 {
+      color: #ff3366;
+    }
+    button {
+      padding: 15px 30px;
+      margin: 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .yes {
+      background-color: #28a745;
+      color: white;
+    }
+    .no {
+      background-color: #dc3545;
+      color: white;
+    }
+    #messages {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <h1>💌 Will you be my Valentine?</h1>
+  <button class="yes" onclick="sayYes()">Yes 💖</button>
+  <button class="no" onclick="sayNo()">No 😏</button>
+
+  <div id="messages"></div>
+
+  <script>
+    let yesCount = 0;
+    let noCount = 0;
+    const rizzYes = [
+      "🔥 You just unlocked premium love mode!",
+      "💋 Our relationship status: officially upgraded.",
+      "🌹 You said yes, now I owe you endless flowers.",
+      "😘 Welcome to the naughty but gentle club."
+    ];
+    const rizzNo = [
+      "😏 Come on, you know you want this.",
+      "🔥 Saying no is illegal in my heart.",
+      "💌 My love is like Wi-Fi, always available.",
+      "🌹 Roses are red, violets are blue, your 'no' is temporary, my rizz is true.",
+      "😉 You pressed no, but your heart whispered yes.",
+      "💖 Resistance is futile, babe.",
+      "🔥 My charm is stronger than your no.",
+      "😎 Even your 'no' looks like a 'maybe'.",
+      "💋 You’re just teasing me, admit it.",
+      "🌹 Every 'no' is just foreplay to a 'yes'.",
+      "😉 I’ll keep rizzing until you surrender.",
+      "💌 Cupid already marked you mine.",
+      "🔥 You can’t escape this vibe.",
+      "😘 Your 'no' is just shy love.",
+      "🌹 I’m too smooth to be rejected.",
+      "😏 You’re playing hard to get, I like it.",
+      "💖 My rizz is undefeated.",
+      "🔥 Your 'no' fuels my passion.",
+      "😉 Admit it, you’re smiling right now.",
+      "💋 The answer is yes, you just don’t know it yet."
+    ];
+
+    function sayYes() {
+      yesCount++;
+      let msg = rizzYes[Math.floor(Math.random() * rizzYes.length)];
+      document.getElementById("messages").innerHTML = msg + "<br>Yes pressed: " + yesCount + " times";
+      // Redirect to WhatsApp link
+      window.open("https://wa.me/256741396107?text=She%20said%20YES!%20🔥%20Relationship%20status%20upgraded!", "_blank");
+    }
+
+    function sayNo() {
+      noCount++;
+      let msg = rizzNo[noCount % rizzNo.length];
+      document.getElementById("messages").innerHTML = msg + "<br>No pressed: " + noCount + " times";
+    }
+  </script>
+</body>
+</html>
